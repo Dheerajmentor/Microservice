@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  ms.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5000:80"
+   
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - C:/Users/dheer/.aspnet/https:/https:ro
+    networks: 
+      - msnetwork
+
+  ms.gateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5001:80"
+    networks: 
+      - msnetwork
+
+networks: 
+  msnetwork:
+
+volumes: 
+  gateway_voludme:

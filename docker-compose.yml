@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  ms.api:
+    image: msapi
+    build:
+      context: .
+      dockerfile: MS.API/Dockerfile
+  
+  ms.gateway:
+    image: ms.gateway
+    build: 
+      context: .
+      dockerfile: MS.Gateway/Dockerfile

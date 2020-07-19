@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,7 +28,19 @@ namespace MS.Gateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            var authenticationProviderKey = "TestKey";
+
+            Action<IdentityServerAuthenticationOptions> options = o =>
+            {
+                o.RequireHttpsMetadata = false;
+                o.Authority = "http://identityserver";
+                o.ApiName = "sampleAPI";
+                o.SupportedTokens = SupportedTokens.Both;
+                o.ApiSecret = "secret";
+            };
+
+            services.AddAuthentication()
+                .AddIdentityServerAuthentication(authenticationProviderKey, options);
             services.AddOcelot();
 
         }

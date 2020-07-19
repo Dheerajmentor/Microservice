@@ -15,7 +15,12 @@
         "POST",
         "PUT",
         "DELETE"
-      ]
+      ],
+      "RouteIsCaseSensitive": false,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": [ "sampleAPI" ]
+      }
     }
   ],
   "GlobalConfiguration": {

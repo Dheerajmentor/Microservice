@@ -32,6 +32,15 @@ services:
     networks: 
       - msnetwork
 
+  ms.ui:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5003:80"
+    networks: 
+      - msnetwork
+
 networks: 
   msnetwork:
 

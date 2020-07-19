@@ -18,3 +18,9 @@ services:
     build: 
       context: .
       dockerfile: IdentityServer/Dockerfile
+  
+  ms.ui:
+    image: ms.ui
+    build: 
+      context: .
+      dockerfile: MS.UI/Dockerfile

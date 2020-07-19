@@ -34,11 +34,11 @@ namespace MS.UI
                 options.DefaultScheme = "Cookies";
                 options.DefaultChallengeScheme = "oidc";
             }).AddCookie("Cookies")
-               .AddOpenIdConnect( options =>
+               .AddOpenIdConnect("oidc", options =>
                 {
                     options.SignInScheme = "Cookies";
 
-                    options.Authority = "http://localhost:5002";
+                    options.Authority = "http://identityserver";
                     options.RequireHttpsMetadata = false;
 
                     options.ClientId = "MS.UI";
@@ -70,10 +70,11 @@ namespace MS.UI
             }
             //app.UseHttpsRedirection();
             app.UseAuthentication();
+
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

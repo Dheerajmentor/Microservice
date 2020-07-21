@@ -39,7 +39,7 @@ namespace IdentityServer
             {
                 new Client(){ 
                     ClientId = "MS.UI",
-                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
                     AllowOfflineAccess = true,
                     ClientSecrets = { new Secret("z71C0PyDjR".Sha256()) },
                     RedirectUris ={"http://localhost:5003/signin-oidc" },

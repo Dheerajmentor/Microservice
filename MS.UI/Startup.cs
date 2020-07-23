@@ -56,12 +56,12 @@ namespace MS.UI
                     options.ClientId = "MS.UI";
                     options.ClientSecret = "z71C0PyDjR";
                     options.ResponseType = "code id_token";
-                    //options.UsePkce = true;
-
+                    options.UsePkce = false;
                     options.SaveTokens = true;
-                    //options.GetClaimsFromUserInfoEndpoint = true;
+                    options.GetClaimsFromUserInfoEndpoint = true;
                     options.Scope.Clear();
-                    options.Scope.Add("profile");
+                    options.Scope.Add("openid");
+                  //  options.Scope.Add("profile");
                     options.Scope.Add("sampleapi.read");
                     options.Scope.Add("offline_access");
                  

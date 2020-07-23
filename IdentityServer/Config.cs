@@ -49,8 +49,11 @@ namespace IdentityServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
-                        "sampleapi.read"
+                        "sampleapi.read",
+                        "sampleapi"
                     },
+                    AllowAccessTokensViaBrowser = true,
+                    RequirePkce =false
                 },
             
             };
